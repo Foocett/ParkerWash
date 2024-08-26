@@ -64,8 +64,8 @@ body {
   color: #555;
   transform: translateY(0);
   transition:
-  transform 0.5s ease,
-  opacity 0.2s ease;
+    transform 0.5s ease,
+    opacity 0.2s ease;
   cursor: pointer;
 }
 
@@ -75,8 +75,8 @@ body {
   position: absolute;
   transform: translate(0, 5vh);
   transition:
-  transform 0.5s ease,
-  opacity 0.2s ease;
+    transform 0.5s ease,
+    opacity 0.2s ease;
   opacity: 0;
 }
 
@@ -114,7 +114,7 @@ body {
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: repeat(2, 1fr);
   gap: 1vh;
-  padding: .5vh;
+  padding: 0.5vh;
 }
 
 .grid-item {
@@ -139,7 +139,7 @@ body {
 }
 
 .grid-object-image {
-  margin-top: .75vh;
+  margin-top: 0.75vh;
 }
 
 .avaliable {
@@ -151,10 +151,26 @@ body {
   background-blend-mode: unset;
 }
 .done {
-  background-image: linear-gradient(to top, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%);
+  background-image: linear-gradient(
+    to top,
+    #dad4ec 0%,
+    #dad4ec 1%,
+    #f3e7e9 100%
+  );
   background-blend-mode: unset;
 }
 .broken {
-  background-image: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
-  background-blend-mode: multiply,multiply;
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(0, 0, 0, 0.15) 100%
+    ),
+    radial-gradient(
+        at top center,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(0, 0, 0, 0.4) 120%
+      )
+      #989898;
+  background-blend-mode: multiply, multiply;
 }

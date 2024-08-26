@@ -1,12 +1,9 @@
 const animationInterval = 50; //time between each element fade in milliseconds
 
-
 const fadeSpeed = 0.15; //fade time in seconds
-
 
 let currentWindow = "Washer";
 document.addEventListener("DOMContentLoaded", () => {
-
   const dryerWindow = document.getElementById("dryerWindow");
   const washerWindow = document.getElementById("washerWindow");
   const dryerElements = document.querySelectorAll(".dryer-item");
@@ -48,26 +45,23 @@ document.addEventListener("DOMContentLoaded", () => {
         }, animationInterval * j);
         j++;
       }
-      setTimeout(
-        () => {
-          dryerWindow.style.display = "none";
-          washerElements.forEach((washer) => (washer.style.opacity = 0));
-          washerWindow.style.display = "grid";
-          //strts at 1 so that the first element's delay is multiplied by 1 and not 0 (no delay)
-          for (let i = 1; i < 9; i++) {
-            setTimeout(() => {
-              washerElements[i-1].style.opacity = 1;
-            }, animationInterval * i);
-          }
-        },
-        animationInterval * 10,
-      ); 
+      setTimeout(() => {
+        dryerWindow.style.display = "none";
+        washerElements.forEach((washer) => (washer.style.opacity = 0));
+        washerWindow.style.display = "grid";
+        //strts at 1 so that the first element's delay is multiplied by 1 and not 0 (no delay)
+        for (let i = 1; i < 9; i++) {
+          setTimeout(() => {
+            washerElements[i - 1].style.opacity = 1;
+          }, animationInterval * i);
+        }
+      }, animationInterval * 10);
     } else {
       washerElements.forEach((washer) => (washer.style.opacity = 0));
       washerWindow.style.display = "grid";
       for (let i = 1; i < 9; i++) {
         setTimeout(() => {
-          washerElements[i-1].style.opacity = 1;
+          washerElements[i - 1].style.opacity = 1;
         }, animationInterval * i);
       }
     }
@@ -82,25 +76,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }, animationInterval * j);
         j++;
       }
-      setTimeout(
-        () => {
-          washerWindow.style.display = "none";
-          dryerElements.forEach((dryer) => (dryer.style.opacity = 0));
-          dryerWindow.style.display = "grid";
-          for (let i = 1; i < 9; i++) {
-            setTimeout(() => {
-              dryerElements[i-1].style.opacity = 1;
-            }, animationInterval * i);
-          }
-        },
-        animationInterval * 10,
-      ); // Wait for the fade-out animation to complete plus a small delay
+      setTimeout(() => {
+        washerWindow.style.display = "none";
+        dryerElements.forEach((dryer) => (dryer.style.opacity = 0));
+        dryerWindow.style.display = "grid";
+        for (let i = 1; i < 9; i++) {
+          setTimeout(() => {
+            dryerElements[i - 1].style.opacity = 1;
+          }, animationInterval * i);
+        }
+      }, animationInterval * 10); // Wait for the fade-out animation to complete plus a small delay
     } else {
       dryerElements.forEach((dryer) => (dryer.style.opacity = 0));
       dryerWindow.style.display = "grid";
       for (let i = 1; i < 9; i++) {
         setTimeout(() => {
-          dryerElements[i-1].style.opacity = 1;
+          dryerElements[i - 1].style.opacity = 1;
         }, animationInterval * i);
       }
     }
