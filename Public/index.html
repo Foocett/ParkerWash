@@ -13,6 +13,22 @@
     ></script>
   </head>
   <body>
+    <div id="set-state-body">
+      <div id="set-state-container">
+        <button id="set-state-close" class="set-state-button">X</button>
+        <div id="set-state-title">Set State</div>
+        <div id="set-state-buttons">
+          <button id="set-state-available" class="set-state-button">
+            Available
+          </button>
+          <button id="set-state-in-use" class="set-state-button">In Use</button>
+          <button id="set-state-finished" class="set-state-button">
+            Finished
+          </button>
+          <button id="set-state-broken" class="set-state-button">Broken</button>
+        </div>
+      </div>
+    </div>
     <div class="navbarContainer">
       <div class="navbar">
         <li id="washer-button" class="selected list-item">
@@ -60,7 +76,7 @@
     </div>
     <main>
       <div id="washerWindow" class="grid-container">
-        <div class="grid-item washer-item" id="washer1">
+        <div class="grid-item washer-item available" id="washer1">
           <div class="status">Available</div>
           <div class="grid-item-title">Washer 1</div>
           <img
@@ -71,7 +87,7 @@
           <div class="timeLeft">00:00</div>
           <div class="user">- - - - -</div>
         </div>
-        <div class="grid-item washer-item" id="washer2">
+        <div class="grid-item washer-item available" id="washer2">
           <div class="status">Available</div>
           <div class="grid-item-title">Washer 2</div>
           <img
@@ -82,7 +98,7 @@
           <div class="timeLeft">00:00</div>
           <div class="user">- - - - -</div>
         </div>
-        <div class="grid-item washer-item" id="washer3">
+        <div class="grid-item washer-item available" id="washer3">
           <div class="status">Available</div>
           <div class="grid-item-title">Washer 3</div>
           <img
@@ -93,7 +109,7 @@
           <div class="timeLeft">00:00</div>
           <div class="user">- - - - -</div>
         </div>
-        <div class="grid-item washer-item" id="washer4">
+        <div class="grid-item washer-item available" id="washer4">
           <div class="status">Available</div>
           <div class="grid-item-title">Washer 4</div>
           <img
@@ -104,7 +120,7 @@
           <div class="timeLeft">00:00</div>
           <div class="user">- - - - -</div>
         </div>
-        <div class="grid-item washer-item" id="washer5">
+        <div class="grid-item washer-item available" id="washer5">
           <div class="status">Available</div>
           <div class="grid-item-title">Washer 5</div>
           <img
@@ -115,7 +131,7 @@
           <div class="timeLeft">00:00</div>
           <div class="user">- - - - -</div>
         </div>
-        <div class="grid-item washer-item" id="washer6">
+        <div class="grid-item washer-item available" id="washer6">
           <div class="status">Available</div>
           <div class="grid-item-title">Washer 6</div>
           <img
@@ -126,7 +142,7 @@
           <div class="timeLeft">00:00</div>
           <div class="user">- - - - -</div>
         </div>
-        <div class="grid-item washer-item" id="washer7">
+        <div class="grid-item washer-item available" id="washer7">
           <div class="status">Available</div>
           <div class="grid-item-title">Washer 7</div>
           <img
@@ -137,7 +153,7 @@
           <div class="timeLeft">00:00</div>
           <div class="user">- - - - -</div>
         </div>
-        <div class="grid-item washer-item" id="washer8">
+        <div class="grid-item washer-item available" id="washer8">
           <div class="status">Available</div>
           <div class="grid-item-title">Washer 8</div>
           <img
@@ -150,7 +166,7 @@
         </div>
       </div>
       <div id="dryerWindow" class="grid-container">
-        <div class="grid-item dryer-item" id="dryer1">
+        <div class="grid-item dryer-item available" id="dryer1">
           <div class="status">Available</div>
           <div class="grid-item-title">Dryer 1</div>
           <img
@@ -161,7 +177,7 @@
           <div class="timeLeft">00:00</div>
           <div class="user">- - - - -</div>
         </div>
-        <div class="grid-item dryer-item" id="dryer2">
+        <div class="grid-item dryer-item available" id="dryer2">
           <div class="status">Available</div>
           <div class="grid-item-title">Dryer 2</div>
           <img
@@ -172,7 +188,7 @@
           <div class="timeLeft">00:00</div>
           <div class="user">- - - - -</div>
         </div>
-        <div class="grid-item dryer-item" id="dryer3">
+        <div class="grid-item dryer-item available" id="dryer3">
           <div class="status">Available</div>
           <div class="grid-item-title">Dryer 3</div>
           <img
@@ -183,7 +199,7 @@
           <div class="timeLeft">00:00</div>
           <div class="user">- - - - -</div>
         </div>
-        <div class="grid-item dryer-item" id="dryer4">
+        <div class="grid-item dryer-item available" id="dryer4">
           <div class="status">Available</div>
           <div class="grid-item-title">Dryer 4</div>
           <img
@@ -194,7 +210,7 @@
           <div class="timeLeft">00:00</div>
           <div class="user">- - - - -</div>
         </div>
-        <div class="grid-item dryer-item" id="dryer5">
+        <div class="grid-item dryer-item available" id="dryer5">
           <div class="status">Available</div>
           <div class="grid-item-title">Dryer 5</div>
           <img
@@ -205,7 +221,7 @@
           <div class="timeLeft">00:00</div>
           <div class="user">- - - - -</div>
         </div>
-        <div class="grid-item dryer-item" id="dryer6">
+        <div class="grid-item dryer-item available" id="dryer6">
           <div class="status">Available</div>
           <div class="grid-item-title">Dryer 6</div>
           <img
@@ -216,7 +232,7 @@
           <div class="timeLeft">00:00</div>
           <div class="user">- - - - -</div>
         </div>
-        <div class="grid-item dryer-item" id="dryer7">
+        <div class="grid-item dryer-item available" id="dryer7">
           <div class="status">Available</div>
           <div class="grid-item-title">Dryer 7</div>
           <img
@@ -227,7 +243,7 @@
           <div class="timeLeft">00:00</div>
           <div class="user">- - - - -</div>
         </div>
-        <div class="grid-item dryer-item" id="dryer8">
+        <div class="grid-item dryer-item available" id="dryer8">
           <div class="status">Available</div>
           <div class="grid-item-title">Dryer 8</div>
           <img
