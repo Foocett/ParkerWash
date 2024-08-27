@@ -1,7 +1,9 @@
 # Parker Wash
+
 A mobile-optimized webapp for indirectly tracking Parker Hall's laundry machines
 
 ### Column Name
+
 - [ ] General Stuff
   - [ ] Comment ya code dumbass
   - [ ] Create readme
