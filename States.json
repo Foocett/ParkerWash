@@ -2,49 +2,49 @@
   "Washers": [
     {
       "id": 1,
-      "available": true,
+      "status": "Available",
       "time": "0:00",
       "user": "None"
     },
     {
       "id": 2,
-      "available": true,
+      "status": "Available",
       "time": "0:00",
       "user": "None"
     },
     {
       "id": 3,
-      "available": true,
+      "status": "Available",
       "time": "0:00",
       "user": "None"
     },
     {
       "id": 4,
-      "available": true,
+      "status": "Available",
       "time": "0:00",
       "user": "None"
     },
     {
       "id": 5,
-      "available": true,
+      "status": "Available",
       "time": "0:00",
       "user": "None"
     },
     {
       "id": 6,
-      "available": true,
+      "status": "Available",
       "time": "0:00",
       "user": "None"
     },
     {
       "id": 7,
-      "available": true,
+      "status": "Available",
       "time": "0:00",
       "user": "None"
     },
     {
       "id": 8,
-      "available": true,
+      "status": "Available",
       "time": "0:00",
       "user": "None"
     }
@@ -52,49 +52,49 @@
   "Dryers": [
     {
       "id": 1,
-      "available": true,
+      "status": "Available",
       "time": "0:00",
       "user": "None"
     },
     {
       "id": 2,
-      "available": true,
+      "status": "Available",
       "time": "0:00",
       "user": "None"
     },
     {
       "id": 3,
-      "available": true,
+      "status": "Available",
       "time": "0:00",
       "user": "None"
     },
     {
       "id": 4,
-      "available": true,
+      "status": "Available",
       "time": "0:00",
       "user": "None"
     },
     {
       "id": 5,
-      "available": true,
+      "status": "Available",
       "time": "0:00",
       "user": "None"
     },
     {
       "id": 6,
-      "available": true,
+      "status": "Available",
       "time": "0:00",
       "user": "None"
     },
     {
       "id": 7,
-      "available": true,
+      "status": "Available",
       "time": "0:00",
       "user": "None"
     },
     {
       "id": 8,
-      "available": true,
+      "status": "Available",
       "time": "0:00",
       "user": "None"
     }
