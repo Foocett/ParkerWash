@@ -1,9 +1,18 @@
+// eslint-disable-next-line no-undef
+const socket = io();
+
+
 const animationInterval = 50; //time between each element fade in milliseconds
 let currentMachine = 0;
 const fadeSpeed = 0.15; //fade time in seconds
 
 let currentWindow = "Washer";
 document.addEventListener("DOMContentLoaded", () => {
+
+  socket.emit('get-states', (response) => {
+    syncFromJSON(response);
+  });
+
   const dryerWindow = document.getElementById("dryerWindow");
   const washerWindow = document.getElementById("washerWindow");
   const dryerElements = document.querySelectorAll(".dryer-item");
@@ -14,6 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const allMachines = document.querySelectorAll(".grid-item");
   const setStateBody = document.getElementById("set-state-body");
   const allStatusTitles = document.querySelectorAll(".status");
+  const allTimeLeft = document.querySelectorAll(".timeLeft");
+  const allUsers = document.querySelectorAll(".user");
 
   const isSetStateWindowOpen = function () {
     return setStateBody.style.display === "block";
@@ -133,9 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleSetStateWindow();
   });
 
-  document
-    .getElementById("set-state-available")
-    .addEventListener("click", () => {
+  document.getElementById("set-state-available").addEventListener("click", () => {
       toggleSetStateWindow();
       allMachines[currentMachine].classList.remove("in-use");
       allMachines[currentMachine].classList.remove("broken");
@@ -169,4 +178,45 @@ document.addEventListener("DOMContentLoaded", () => {
       allMachines[currentMachine].classList.add("finished");
       allStatusTitles[currentMachine].innerText = "Finished";
     });
+
+    function writeState(machine, state) {
+      machine.classList.remove("available");
+      machine.classList.remove("in-use");
+      machine.classList.remove("broken");
+      machine.classList.remove("finished");
+      switch (state) {
+        case "Available":
+          machine.classList.add("available");
+          break;
+        case "In Use":
+          machine.classList.add("in-use");
+          break;
+        case "Broken":
+          machine.classList.add("broken");
+          break;
+        case "Finished":
+          machine.classList.add("finished");
+          break;
+        default:
+          machine.classList.add("available");
+          break;
+      }
+    }
+
+    function syncFromJSON(states) {
+      states["Washers"].forEach(machine => {
+        allTimeLeft[machine.id-1].innerText = machine.time;
+        allUsers[machine.id-1].innerText = machine.user;
+        console.log(machine.status);
+        allStatusTitles[machine.id-1].innerText = machine.status;
+        writeState(allStatusTitles[machine.id-1], machine.status);
+      });
+      states["Dryers"].forEach(machine => {
+        allTimeLeft[machine.id+7].innerText = machine.time;
+        allUsers[machine.id+7].innerText = machine.user;
+        console.log(machine.status);
+        allStatusTitles[machine.id+7].innerText = machine.status;
+        writeState(allStatusTitles[machine.id+7], machine.status);
+      })
+    }
 });
