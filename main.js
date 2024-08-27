@@ -1,38 +1,48 @@
-//Create server
-// This section was sourced from the official Socket.IO documentation (https://socket.io/docs/v4/server-api/)
-const express = require("express");
+const fs = require('fs');
+const path = require('path');
+const express = require('express');
+const http = require('http');
+const socketIo = require('socket.io');
+const process = require('process');
+
+
 const app = express();
-const http = require("http");
 const server = http.createServer(app);
-const { Server } = require("socket.io");
-const io = new Server(server);
-const fs = require("fs");
+const io = socketIo(server);
 
-const states = require("./states.json");
+// eslint-disable-next-line no-undef
+const jsonDataPath = path.join(__dirname, 'states.json'); // Path to your JSON file
 
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/Public/index.html");
+app.get('/', (req, res) => {
+  // eslint-disable-next-line no-undef
+  res.sendFile(__dirname+'/Public/index.html');
+});
+app.use(express.static('Public'));
+
+// Read JSON data
+let jsonData;
+fs.readFile(jsonDataPath, 'utf8', (err, data) => {
+  if (err) {
+    console.error('Error reading JSON data:', err);
+    return;
+  }
+  jsonData = JSON.parse(data);
 });
 
-app.use(express.static("Public"));
+io.on('connection', (socket) => {
+  console.log('New client connected');
 
-io.on("connection", (socket) => {
-  console.log("a user connected");
+  // Handle get-states event
+  socket.on('get-states', (callback) => {
+    callback(jsonData);
+  });
 
-  socket.on("disconnect", () => {
-    console.log("user disconnected");
+  socket.on('disconnect', () => {
+    console.log('Client disconnected');
   });
 });
 
-function getWasher(id) {
-  return states.washers[id - 1];
-}
-function getDryer(id) {
-  return states.dryers[id - 1];
-}
-
-// Start the server and listen on the specified port
-const port = 3000; // The port number that the web server will listen on, this can be any number between 0 and 65535, but some numbers are reserved for specific purposes, see https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers for more information
-server.listen(port, () => {
-  console.log(`Web server running at http://localhost:${port}`);
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
