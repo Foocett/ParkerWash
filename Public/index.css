@@ -239,3 +239,7 @@ body.dimmed::before {
 .set-state-button:active {
   background-color: #3c3c3c;
 }
+
+.status {
+  background-image: unset !important;
+}
